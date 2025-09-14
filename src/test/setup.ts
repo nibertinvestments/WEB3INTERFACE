@@ -108,7 +108,6 @@ beforeAll(() => {
     unobserve: vi.fn(),
     disconnect: vi.fn(),
   }));
-
 });
 
 // runs a cleanup after each test case (e.g. clearing jsdom)
