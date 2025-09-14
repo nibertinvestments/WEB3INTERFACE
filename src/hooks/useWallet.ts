@@ -11,6 +11,15 @@ export const useWallet = () => {
   
   const [isConnecting, setIsConnecting] = useState(false);
 
+  const disconnect = useCallback(() => {
+    setWalletInfo({
+      address: '',
+      balance: '0',
+      chainId: 0,
+      isConnected: false,
+    });
+  }, []);
+
   const connect = useCallback(async () => {
     if (typeof window.ethereum === 'undefined') {
       alert('Please install MetaMask or another Web3 wallet!');
@@ -72,16 +81,7 @@ export const useWallet = () => {
     } finally {
       setIsConnecting(false);
     }
-  }, []);
-
-  const disconnect = useCallback(() => {
-    setWalletInfo({
-      address: '',
-      balance: '0',
-      chainId: 0,
-      isConnected: false,
-    });
-  }, []);
+  }, [disconnect]);
 
   return {
     walletInfo,
