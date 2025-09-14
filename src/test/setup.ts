@@ -43,6 +43,21 @@ beforeAll(() => {
     },
     writable: true,
   });
+
+  // Mock document.documentElement for theme tests
+  const mockClassList = {
+    add: vi.fn(),
+    remove: vi.fn(),
+    contains: vi.fn(),
+    toggle: vi.fn(),
+  };
+
+  Object.defineProperty(document, 'documentElement', {
+    value: {
+      classList: mockClassList,
+    },
+    writable: true,
+  });
 });
 
 // runs a cleanup after each test case (e.g. clearing jsdom)
