@@ -75,11 +75,11 @@ export function formatDate(timestamp: number | Date): string {
 export function formatRelativeTime(timestamp: number | Date): string {
   const now = Date.now();
   const diff = now - Number(timestamp);
-  
+
   const minutes = Math.floor(diff / 60000);
   const hours = Math.floor(diff / 3600000);
   const days = Math.floor(diff / 86400000);
-  
+
   if (minutes < 1) return 'Just now';
   if (minutes < 60) return `${minutes}m ago`;
   if (hours < 24) return `${hours}h ago`;
@@ -175,7 +175,11 @@ export async function copyToClipboard(text: string): Promise<boolean> {
 /**
  * Download file
  */
-export function downloadFile(content: string, filename: string, type = 'text/plain'): void {
+export function downloadFile(
+  content: string,
+  filename: string,
+  type = 'text/plain'
+): void {
   const blob = new Blob([content], { type });
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');

@@ -8,7 +8,7 @@ export const useWallet = () => {
     chainId: 0,
     isConnected: false,
   });
-  
+
   const [isConnecting, setIsConnecting] = useState(false);
 
   const disconnect = useCallback(() => {
@@ -27,27 +27,27 @@ export const useWallet = () => {
     }
 
     setIsConnecting(true);
-    
+
     try {
       // Request account access
-      const accounts = await window.ethereum.request({
+      const accounts = (await window.ethereum.request({
         method: 'eth_requestAccounts',
-      }) as string[];
+      })) as string[];
 
       if (accounts.length === 0) {
         throw new Error('No accounts found');
       }
 
       // Get balance
-      const balance = await window.ethereum.request({
+      const balance = (await window.ethereum.request({
         method: 'eth_getBalance',
         params: [accounts[0], 'latest'],
-      }) as string;
+      })) as string;
 
       // Get chain ID
-      const chainId = await window.ethereum.request({
+      const chainId = (await window.ethereum.request({
         method: 'eth_chainId',
-      }) as string;
+      })) as string;
 
       // Convert balance from wei to ether (simplified)
       const balanceInEth = (parseInt(balance, 16) / 1e18).toFixed(4);
@@ -74,7 +74,6 @@ export const useWallet = () => {
         const chainId = Array.isArray(data) ? data[0] : data;
         setWalletInfo(prev => ({ ...prev, chainId: parseInt(chainId, 16) }));
       });
-
     } catch (error) {
       console.error('Failed to connect wallet:', error);
       alert('Failed to connect wallet. Please try again.');

@@ -71,7 +71,8 @@ export const CONTRACT_ADDRESSES: Record<number, Record<string, string>> = {
 // Application configuration
 export const APP_CONFIG = {
   name: 'Web3 Interface',
-  description: 'A comprehensive Web3 user interface for decentralized applications',
+  description:
+    'A comprehensive Web3 user interface for decentralized applications',
   version: '0.1.0',
   author: 'Nibert Investments',
   url: 'https://github.com/nibertinvestments/WEB3INTERFACE',

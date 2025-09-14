@@ -32,18 +32,21 @@ src/
 ## Code Style Guidelines
 
 ### TypeScript Usage
+
 - Use strict TypeScript configuration
 - Define interfaces for all props and complex objects
 - Use proper typing for Web3 interactions
 - Avoid `any` type - use specific types or `unknown`
 
 ### React Patterns
+
 - Use functional components exclusively
 - Implement custom hooks for reusable logic
 - Use proper dependency arrays in hooks
 - Follow React best practices for performance
 
 ### Component Architecture
+
 ```typescript
 // Preferred component structure
 interface ComponentProps {
@@ -63,6 +66,7 @@ const Component: React.FC<ComponentProps> = ({
 ```
 
 ### Styling Guidelines
+
 - Use Tailwind CSS classes
 - Utilize custom utility classes: `web3-card`, `web3-button-*`, `web3-input`
 - Support dark mode with `dark:` prefixes
@@ -71,6 +75,7 @@ const Component: React.FC<ComponentProps> = ({
 ## Web3 Integration Patterns
 
 ### Wallet Connection
+
 ```typescript
 // Use the useWallet hook for wallet operations
 const { walletInfo, connect, disconnect, isConnecting } = useWallet();
@@ -82,6 +87,7 @@ if (!walletInfo.isConnected) {
 ```
 
 ### Transaction Handling
+
 ```typescript
 // Always handle errors and loading states
 const [isLoading, setIsLoading] = useState(false);
@@ -90,7 +96,7 @@ const [error, setError] = useState<string | null>(null);
 const handleTransaction = async () => {
   setIsLoading(true);
   setError(null);
-  
+
   try {
     // Transaction logic
     const tx = await sendTransaction(params);
@@ -104,6 +110,7 @@ const handleTransaction = async () => {
 ```
 
 ### Address and Input Validation
+
 ```typescript
 // Use utility functions for validation
 import { isValidAddress, formatEther, truncateAddress } from '@/utils';
@@ -117,6 +124,7 @@ if (!isValidAddress(address)) {
 ## Common Patterns to Follow
 
 ### Error Handling
+
 ```typescript
 // Use consistent error handling
 try {
@@ -129,6 +137,7 @@ try {
 ```
 
 ### Loading States
+
 ```typescript
 // Implement proper loading states
 const [isLoading, setIsLoading] = useState(false);
@@ -141,6 +150,7 @@ return (
 ```
 
 ### Form Handling
+
 ```typescript
 // Use controlled components with validation
 const [formData, setFormData] = useState({ amount: '', recipient: '' });
@@ -148,15 +158,15 @@ const [errors, setErrors] = useState<Record<string, string>>({});
 
 const validateForm = () => {
   const newErrors: Record<string, string> = {};
-  
+
   if (!formData.amount || parseFloat(formData.amount) <= 0) {
     newErrors.amount = 'Please enter a valid amount';
   }
-  
+
   if (!isValidAddress(formData.recipient)) {
     newErrors.recipient = 'Please enter a valid address';
   }
-  
+
   setErrors(newErrors);
   return Object.keys(newErrors).length === 0;
 };
@@ -165,18 +175,21 @@ const validateForm = () => {
 ## Security Best Practices
 
 ### Input Validation
+
 - Always validate user inputs
 - Use proper type checking
 - Sanitize data before processing
 - Validate Ethereum addresses and amounts
 
 ### Wallet Security
+
 - Never store private keys
 - Use wallet provider for signing
 - Validate transaction parameters
 - Handle user rejections gracefully
 
 ### XSS Prevention
+
 - Avoid `dangerouslySetInnerHTML`
 - Sanitize dynamic content
 - Use proper escaping for user data
@@ -184,6 +197,7 @@ const validateForm = () => {
 ## Testing Guidelines
 
 ### Component Testing
+
 ```typescript
 import { render, screen, fireEvent } from '@testing-library/react';
 import { expect, test, vi } from 'vitest';
@@ -191,26 +205,27 @@ import { expect, test, vi } from 'vitest';
 test('should handle button click', async () => {
   const mockOnClick = vi.fn();
   render(<Button onClick={mockOnClick}>Click me</Button>);
-  
+
   const button = screen.getByRole('button');
   await fireEvent.click(button);
-  
+
   expect(mockOnClick).toHaveBeenCalledOnce();
 });
 ```
 
 ### Hook Testing
+
 ```typescript
 import { renderHook, act } from '@testing-library/react';
 import { useWallet } from '@/hooks';
 
 test('useWallet should connect wallet', async () => {
   const { result } = renderHook(() => useWallet());
-  
+
   await act(async () => {
     await result.current.connect();
   });
-  
+
   expect(result.current.walletInfo.isConnected).toBe(true);
 });
 ```
@@ -218,6 +233,7 @@ test('useWallet should connect wallet', async () => {
 ## Common File Templates
 
 ### New Component Template
+
 ```typescript
 import React from 'react';
 import { cn } from '@/utils';
@@ -243,6 +259,7 @@ export default NewComponent;
 ```
 
 ### New Hook Template
+
 ```typescript
 import { useState, useCallback } from 'react';
 
@@ -261,7 +278,7 @@ export const useNewHook = (): UseNewHookReturn => {
   const action = useCallback(async () => {
     setLoading(true);
     setError(null);
-    
+
     try {
       // Implementation
     } catch (err) {
@@ -276,6 +293,7 @@ export const useNewHook = (): UseNewHookReturn => {
 ```
 
 ### New Page Template
+
 ```typescript
 import React from 'react';
 import { Card, Button } from '@/components';
@@ -308,8 +326,14 @@ export default NewPage;
 ## Utility Functions Usage
 
 ### String Formatting
+
 ```typescript
-import { formatNumber, formatCurrency, formatEther, truncateAddress } from '@/utils';
+import {
+  formatNumber,
+  formatCurrency,
+  formatEther,
+  truncateAddress,
+} from '@/utils';
 
 // Format numbers
 const displayAmount = formatNumber(1234.567, 2); // "1,234.57"
@@ -325,6 +349,7 @@ const shortAddress = truncateAddress('0x742...46f3'); // "0x742...46f3"
 ```
 
 ### Validation
+
 ```typescript
 import { isValidAddress, isValidPrivateKey } from '@/utils';
 
@@ -359,6 +384,7 @@ if (network) {
 ## Performance Considerations
 
 ### Memoization
+
 ```typescript
 import { useMemo, useCallback } from 'react';
 
@@ -374,6 +400,7 @@ const handleClick = useCallback(() => {
 ```
 
 ### Lazy Loading
+
 ```typescript
 import { lazy, Suspense } from 'react';
 
@@ -389,6 +416,7 @@ const HeavyComponent = lazy(() => import('./HeavyComponent'));
 ## Common Issues and Solutions
 
 ### Web3 Provider Issues
+
 ```typescript
 // Check for provider availability
 if (typeof window.ethereum === 'undefined') {
@@ -408,6 +436,7 @@ useEffect(() => {
 ```
 
 ### Network Switching
+
 ```typescript
 // Request network switch
 const switchNetwork = async (chainId: number) => {
@@ -425,6 +454,7 @@ const switchNetwork = async (chainId: number) => {
 ## Documentation Requirements
 
 When creating new features:
+
 1. Add JSDoc comments for complex functions
 2. Update type definitions in `src/types/`
 3. Add examples to component documentation

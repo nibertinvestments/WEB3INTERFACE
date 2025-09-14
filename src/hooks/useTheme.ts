@@ -7,9 +7,9 @@ export const useTheme = () => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem(STORAGE_KEYS.THEME) as Theme;
       if (saved) return saved;
-      
-      return window.matchMedia('(prefers-color-scheme: dark)').matches 
-        ? 'dark' 
+
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
         : 'light';
     }
     return 'light';
@@ -20,7 +20,8 @@ export const useTheme = () => {
     root.classList.remove('light', 'dark');
 
     if (theme === 'system') {
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
+        .matches
         ? 'dark'
         : 'light';
       root.classList.add(systemTheme);

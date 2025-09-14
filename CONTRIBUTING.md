@@ -26,17 +26,20 @@ Pull requests are the best way to propose changes to the codebase. We actively w
 ## Development Setup
 
 1. **Clone your fork of the repo**
+
    ```bash
    git clone https://github.com/yourusername/WEB3INTERFACE.git
    cd WEB3INTERFACE
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Create a branch**
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
@@ -91,7 +94,7 @@ import { expect, test } from 'vitest';
 import Button from '@/components/Button';
 
 test('should render button with correct variant', () => {
-  render(<Button variant="primary">Test Button</Button>);
+  render(<Button variant='primary'>Test Button</Button>);
   const button = screen.getByRole('button', { name: /test button/i });
   expect(button).toHaveClass('web3-button-primary');
 });
@@ -117,6 +120,7 @@ We follow the [Conventional Commits](https://www.conventionalcommits.org/) speci
 - `chore:` maintenance tasks
 
 Examples:
+
 ```
 feat: add wallet connection status indicator
 fix: resolve theme switching issue in mobile view
@@ -251,6 +255,7 @@ By contributing, you agree that your contributions will be licensed under the MI
 ## Questions?
 
 Feel free to contact us:
+
 - Open an issue for project-related questions
 - Email: contact@nibertinvestments.com
 - Twitter: [@nibertinvest](https://twitter.com/nibertinvest)

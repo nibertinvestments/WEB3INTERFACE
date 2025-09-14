@@ -26,12 +26,12 @@ const Card: React.FC<CardProps> = ({
   return (
     <div className={cn('web3-card', paddingClasses[padding], className)}>
       {title && (
-        <div className="mb-4">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+        <div className='mb-4'>
+          <h3 className='text-lg font-semibold text-gray-900 dark:text-gray-100'>
             {title}
           </h3>
           {description && (
-            <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+            <p className='mt-1 text-sm text-gray-600 dark:text-gray-400'>
               {description}
             </p>
           )}

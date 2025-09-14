@@ -6,9 +6,15 @@ import App from './App';
 declare global {
   interface Window {
     ethereum?: {
-      request: (args: { method: string; params?: unknown[] }) => Promise<unknown>;
+      request: (args: {
+        method: string;
+        params?: unknown[];
+      }) => Promise<unknown>;
       on: (event: string, handler: (data: string | string[]) => void) => void;
-      removeListener: (event: string, handler: (data: string | string[]) => void) => void;
+      removeListener: (
+        event: string,
+        handler: (data: string | string[]) => void
+      ) => void;
     };
   }
 }
@@ -16,5 +22,5 @@ declare global {
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
 );

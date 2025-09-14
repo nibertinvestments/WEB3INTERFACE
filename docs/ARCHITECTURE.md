@@ -35,26 +35,31 @@ This document provides a comprehensive overview of the Web3 Interface architectu
 ## Design Principles
 
 ### 1. Modularity
+
 - Each component serves a single purpose
 - Reusable components with clear interfaces
 - Separation of concerns between layers
 
 ### 2. Type Safety
+
 - Full TypeScript implementation
 - Strict type checking enabled
 - Runtime type validation where needed
 
 ### 3. Performance
+
 - Lazy loading for code splitting
 - Optimized re-renders with React best practices
 - Efficient state management
 
 ### 4. Scalability
+
 - Modular architecture for easy expansion
 - Plugin-ready for additional features
 - Configurable for different use cases
 
 ### 5. Security
+
 - Input validation and sanitization
 - Secure storage practices
 - No private key handling in application

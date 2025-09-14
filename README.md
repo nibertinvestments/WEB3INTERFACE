@@ -35,30 +35,34 @@ A comprehensive Web3 user interface for decentralized applications, built with m
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 - A Web3 wallet (MetaMask recommended)
 
 ### Setup
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/nibertinvestments/WEB3INTERFACE.git
    cd WEB3INTERFACE
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Set up environment variables**
+
    ```bash
    cp .env.example .env.local
    # Edit .env.local with your configuration
    ```
 
 4. **Start the development server**
+
    ```bash
    npm run dev
    ```
@@ -96,8 +100,8 @@ import { Card, Button } from '@/components';
 
 function CustomDashboard() {
   return (
-    <Card title="My Dashboard" description="Welcome to Web3">
-      <Button variant="primary" size="lg">
+    <Card title='My Dashboard' description='Welcome to Web3'>
+      <Button variant='primary' size='lg'>
         Get Started
       </Button>
     </Card>
@@ -107,19 +111,19 @@ function CustomDashboard() {
 
 ## 📝 Available Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build |
-| `npm run lint` | Run ESLint |
-| `npm run lint:fix` | Fix ESLint errors |
-| `npm run type-check` | Run TypeScript checks |
-| `npm run format` | Format code with Prettier |
-| `npm run format:check` | Check code formatting |
-| `npm run test` | Run tests |
-| `npm run test:ui` | Run tests with UI |
-| `npm run test:coverage` | Run tests with coverage |
+| Command                 | Description               |
+| ----------------------- | ------------------------- |
+| `npm run dev`           | Start development server  |
+| `npm run build`         | Build for production      |
+| `npm run preview`       | Preview production build  |
+| `npm run lint`          | Run ESLint                |
+| `npm run lint:fix`      | Fix ESLint errors         |
+| `npm run type-check`    | Run TypeScript checks     |
+| `npm run format`        | Format code with Prettier |
+| `npm run format:check`  | Check code formatting     |
+| `npm run test`          | Run tests                 |
+| `npm run test:ui`       | Run tests with UI         |
+| `npm run test:coverage` | Run tests with coverage   |
 
 ## 🏗️ Project Structure
 
@@ -168,12 +172,24 @@ This project uses Tailwind CSS with a custom design system that includes:
 ### Custom CSS Classes
 
 ```css
-.gradient-text { /* Gradient text effect */ }
-.web3-card { /* Styled card component */ }
-.web3-button { /* Base button styles */ }
-.web3-button-primary { /* Primary button variant */ }
-.web3-button-secondary { /* Secondary button variant */ }
-.web3-input { /* Styled input component */ }
+.gradient-text {
+  /* Gradient text effect */
+}
+.web3-card {
+  /* Styled card component */
+}
+.web3-button {
+  /* Base button styles */
+}
+.web3-button-primary {
+  /* Primary button variant */
+}
+.web3-button-secondary {
+  /* Secondary button variant */
+}
+.web3-input {
+  /* Styled input component */
+}
 ```
 
 ## 🔌 Web3 Integration
